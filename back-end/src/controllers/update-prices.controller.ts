@@ -2,40 +2,71 @@ import { Request, Response } from "express";
 import { Op } from "sequelize";
 import { Product } from "../models/product.model";
 import { convertArrayToObject } from "../utils/functions";
+import {
+    getProductsThatAreNotPacks,
+    updatePacksProductBelongsTo,
+} from "../utils/queries";
 
 // Main
 export const updatePrices = async (req: Request, res: Response) => {
-    if (req.body.validationWarnings)
-        throw new Error("Pedido de atualização de produtos inválido.");
-
     const productUpdates = req.body.product_updates as Array<ProductUpdate>;
-    const products = await getProducts(productUpdates);
-    await updateProducts(productUpdates, products);
+    const { validationWarnings } = req.body;
 
-    res.status(200).json({ status: "ok" });
+    if (validationWarnings) {
+        return res.status(400).json({
+            status: "failed",
+            data: {
+                warnings: validationWarnings,
+            },
+        });
+    }
+
+    const productCodes = productUpdates.map((p) => p.code);
+    const productsThatAreNotPacks = await getOnlyProductsThatAreNotPacks(
+        productCodes,
+    );
+    await updateProducts(productUpdates, productsThatAreNotPacks);
+    const updatedProducts = await getProducts(productCodes);
+
+    res.status(200).json({
+        status: "ok",
+        data: {
+            products: updatedProducts,
+        },
+    });
 };
 
 // Helper functions
-async function getProducts(productUpdates: Array<ProductUpdate>) {
-    const productCodes = productUpdates.map((p) => p.code);
-    const products = await Product.findAll({
+async function getOnlyProductsThatAreNotPacks(productCodes: Array<number>) {
+    const products = await getProductsThatAreNotPacks(productCodes);
+    return convertArrayToObject(products, (p) => p.code);
+}
+
+function getProducts(productCodes: Array<number>) {
+    return Product.findAll({
         where: {
             code: {
                 [Op.in]: productCodes,
             },
         },
     });
-    return convertArrayToObject(products, (p: Product) => p.code);
 }
 
 async function updateProducts(
     productUpdates: Array<ProductUpdate>,
-    products: { [key: string | number]: Product },
+    productsThatAreNotPacks: Obj<Product>,
 ) {
-    const promises = productUpdates.map((productUpdate) => {
-        const product = products[productUpdate.code];
-        product.sales_price = productUpdate.sales_price;
-        return product.save();
-    });
+    const productUpdatesThatAreNotPacks = productUpdates.filter(
+        (p) => productsThatAreNotPacks[p.code],
+    );
+    const promises = productUpdatesThatAreNotPacks.map((p) =>
+        updateProduct(productsThatAreNotPacks[p.code], p),
+    );
     await Promise.all(promises);
+}
+
+async function updateProduct(product: Product, productUpdate: ProductUpdate) {
+    product.sales_price = productUpdate.sales_price;
+    await product.save();
+    await updatePacksProductBelongsTo(product.code);
 }

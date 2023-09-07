@@ -1,8 +1,8 @@
 export const convertArrayToObject = <Item>(
-    items: Array<any>,
+    items: Array<Item>,
     getKey: (item: Item) => string | number,
-): { [key: string | number]: Item } => {
-    const itemsObj: { [key: string | number]: Item } = {};
+): Obj<Item> => {
+    const itemsObj: Obj<Item> = {};
     for (const item of items) {
         const key = getKey(item);
         itemsObj[key] = item;

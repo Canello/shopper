@@ -8,5 +8,8 @@ export const validatePriceUpdates = (req: Request, res: Response) => {
         ? { isValid: false, warnings: validationWarnings }
         : { isValid: true };
 
-    res.status(200).json({ status: "ok", data });
+    res.status(200).json({
+        status: "ok",
+        data,
+    });
 };

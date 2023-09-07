@@ -8,3 +8,7 @@ type ValidationWarnings = null | {
 };
 
 type Validation = { validationWarnings: ValidationWarnings };
+
+type Obj<T> = { [key: string | number]: T };
+
+type PackSalesPrice = { pack_id: number; pack_sales_price: number };

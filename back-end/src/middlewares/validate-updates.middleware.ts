@@ -10,9 +10,9 @@ export const validateUpdates = async (
     next: NextFunction,
 ) => {
     const productUpdates = req.body.product_updates as Array<ProductUpdate>;
+
     const products = await getProducts(productUpdates);
     const validation: Validation = { validationWarnings: null };
-
     validateProductUpdates(productUpdates, products, validation);
     req.body.validationWarnings = validation.validationWarnings;
 
@@ -29,12 +29,12 @@ async function getProducts(productUpdates: Array<ProductUpdate>) {
             },
         },
     });
-    return convertArrayToObject(products, (p: Product) => p.code);
+    return convertArrayToObject(products, (p) => p.code);
 }
 
 function validateProductUpdates(
     productUpdates: Array<ProductUpdate>,
-    products: { [key: string | number]: Product },
+    products: Obj<Product>,
     validation: Validation,
 ) {
     for (const productUpdate of productUpdates) {
