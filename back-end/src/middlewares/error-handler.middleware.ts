@@ -6,8 +6,6 @@ export const errorHandler = async (
     res: Response,
     next: NextFunction,
 ) => {
-    console.log(err);
-
     res.status(500).send({
         status: "failed",
         data: {
