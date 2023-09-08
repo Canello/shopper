@@ -1,12 +1,9 @@
-import type { Config } from "jest";
-
-const config: Config = {
+/** @type {import('ts-jest').JestConfigWithTsJest} */
+module.exports = {
     preset: "ts-jest",
     testEnvironment: "node",
     restoreMocks: true,
-    setupFilesAfterEnv: ["./setup-unit.ts"],
+    setupFilesAfterEnv: ["./src/test/setup-unit.ts"],
     // prettier-ignore
     testPathIgnorePatterns: ["/node_modules/", "\.integration\.test"],
 };
-
-export default config;

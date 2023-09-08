@@ -14,7 +14,7 @@ export const validatePriceUpdates = async (req: Request, res: Response) => {
         validationWarnings,
     );
 
-    res.status(200).json({
+    res.status(200).send({
         status: "ok",
         data: {
             is_valid: !validationWarnings,

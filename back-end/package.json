@@ -6,8 +6,7 @@
     "scripts": {
         "start": "node dist/index.js",
         "dev": "nodemon src/index.ts",
-        "unit-test": "jest --watchAll --config src/test/jest.config.unit.ts",
-        "integration-test": "jest --watchAll --config src/test/jest.config.integration.ts",
+        "test": "jest --watchAll --config ./jest.config.unit.js",
         "build": "tsc"
     },
     "author": "",

@@ -16,6 +16,8 @@ export const validateUpdates = async (
     validateProductUpdates(productUpdates, products, validation);
     req.body.validationWarnings = validation.validationWarnings;
 
+    console.log(validation.validationWarnings);
+
     next();
 };
 

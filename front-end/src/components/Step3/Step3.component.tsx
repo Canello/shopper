@@ -64,7 +64,7 @@ export const Step3: React.FC<IStep3Props> = ({
                     onClick={update}
                     disabled={!validationInfo.is_valid}
                 >
-                    Atualizar
+                    Atualizar preços
                 </Step3Button>
             </ButtonsContainer>
             <Spacer y={24} />

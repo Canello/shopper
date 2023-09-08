@@ -12,7 +12,7 @@ export const updatePrices = async (req: Request, res: Response) => {
     const validationWarnings = req.body.validationWarnings;
 
     if (validationWarnings) {
-        return res.status(400).json({
+        return res.status(400).send({
             status: "failed",
             data: {
                 warnings: validationWarnings,
@@ -26,7 +26,7 @@ export const updatePrices = async (req: Request, res: Response) => {
     );
     await updateProducts(productUpdates, productsThatAreNotPacks);
 
-    res.status(200).json({ status: "ok" });
+    res.status(200).send({ status: "ok" });
 };
 
 // Helper functions
