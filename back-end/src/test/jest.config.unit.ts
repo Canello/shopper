@@ -4,7 +4,7 @@ const config: Config = {
     preset: "ts-jest",
     testEnvironment: "node",
     restoreMocks: true,
-    setupFilesAfterEnv: ["src/test/setup-unit.ts"],
+    setupFilesAfterEnv: ["./setup-unit.ts"],
     // prettier-ignore
     testPathIgnorePatterns: ["/node_modules/", "\.integration\.test"],
 };

@@ -23,6 +23,7 @@ export const CsvErrorText = styled.span`
 
 export const ButtonsContainer = styled.div`
     display: flex;
+    align-self: flex-end;
 `;
 
 export const Step2Button = styled(Button)`

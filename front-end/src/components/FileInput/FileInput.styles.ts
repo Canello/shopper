@@ -32,7 +32,7 @@ export const PrimaryLabel = styled(Label)`
 `;
 
 export const SecondaryLabel = styled(Label)`
-    border: 1px solid var(--neutral-color-1);
+    border: 1px solid var(--secondary-color-5);
     color: var(--neutral-color-1);
 `;
 

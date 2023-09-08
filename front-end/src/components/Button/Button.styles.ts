@@ -9,6 +9,7 @@ const HEIGHT = {
 
 interface IBaseButton extends ButtonHTMLAttributes<HTMLButtonElement> {
     size: "small" | "medium" | "large";
+    disabled: boolean;
 }
 export const BaseButton = styled.button<IBaseButton>`
     display: flex;
@@ -20,6 +21,7 @@ export const BaseButton = styled.button<IBaseButton>`
     font-size: 14px;
     font-weight: 700;
     transition: opacity 100ms linear;
+    pointer-events: ${({ disabled }) => (disabled ? "none" : "all")};
 
     &:hover {
         opacity: 0.8;
@@ -27,11 +29,17 @@ export const BaseButton = styled.button<IBaseButton>`
 `;
 
 export const PrimaryButton = styled(BaseButton)`
-    background-color: var(--primary-color-1);
-    color: #ffffff;
+    background-color: ${({ disabled }) =>
+        disabled ? "var(--secondary-color-4)" : "var(--primary-color-1)"};
+    color: ${({ disabled }) =>
+        disabled ? "var(--secondary-color-5)" : "var(--neutral-color-1)"};
 `;
 
 export const SecondaryButton = styled(BaseButton)`
-    border: 1px solid var(--neutral-color-1);
-    color: var(--neutral-color-1);
+    border: ${({ disabled }) =>
+        disabled
+            ? "1px solid var(--secondary-color-3)"
+            : "1px solid var(--secondary-color-5)"};
+    color: ${({ disabled }) =>
+        disabled ? "var(--secondary-color-4)" : "var(--neutral-color-1)"};
 `;

@@ -27,6 +27,7 @@ export const ValidationError = styled.span`
 
 export const ButtonsContainer = styled.div`
     display: flex;
+    align-self: flex-end;
 `;
 
 export const Step3Button = styled(Button)`
@@ -35,4 +36,9 @@ export const Step3Button = styled(Button)`
 
 export const Step3FileInput = styled(FileInput)`
     width: 228px;
+`;
+
+export const Hr = styled.hr`
+    width: 100%;
+    border-color: var(--secondary-color-4);
 `;

@@ -6,6 +6,7 @@ import {
     Description,
     Filename,
     Form,
+    Hr,
     Step3Button,
     Step3FileInput,
     ValidationError,
@@ -39,7 +40,7 @@ export const Step3: React.FC<IStep3Props> = ({
                     </ValidationSuccess>
                 ) : (
                     <ValidationError>
-                        Validação mal sucedida! Escolha um arquivo válido.
+                        Validação mal sucedida. Escolha um arquivo válido.
                     </ValidationError>
                 )}
             </Description>
@@ -53,24 +54,22 @@ export const Step3: React.FC<IStep3Props> = ({
                     Limpar
                 </Step3Button>
                 <Spacer x={24} />
-                <Step3FileInput
-                    variant={validationInfo.is_valid ? "secondary" : "primary"}
-                    onChange={onChangeFile}
-                >
+                <Step3FileInput variant={"secondary"} onChange={onChangeFile}>
                     Escolher outro
                 </Step3FileInput>
                 <Spacer x={24} />
-                {validationInfo.is_valid ? (
-                    <Step3Button
-                        variant="primary"
-                        size="medium"
-                        onClick={update}
-                    >
-                        Atualizar
-                    </Step3Button>
-                ) : null}
+                <Step3Button
+                    variant="primary"
+                    size="medium"
+                    onClick={update}
+                    disabled={!validationInfo.is_valid}
+                >
+                    Atualizar
+                </Step3Button>
             </ButtonsContainer>
-            <Spacer y={64} />
+            <Spacer y={24} />
+            <Hr />
+            <Spacer y={32} />
             <Table productInfos={validationInfo.product_infos} />
         </Form>
     );
