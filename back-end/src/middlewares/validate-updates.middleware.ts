@@ -115,7 +115,7 @@ function validatePriceVariation(
     }
     if (pricePercentageVariation > 10) {
         addWarning(
-            `Variação de preço maior que 10%. Preço atual: R$ ${product.sales_price}`,
+            `Variação de preço maior que 10%.`,
             productUpdate.code,
             validation,
         );
