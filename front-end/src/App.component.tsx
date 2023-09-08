@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { AppStyled, Main, Top } from "./App.styles";
-import { Title } from "./components/Title/Title.component";
+import { AppStyled, Main, Title, TitleContainer, Top } from "./App.styles";
 import { Spacer } from "./components/Spacer/Spacer.component";
 import { ProgressTracker } from "./components/ProgressTracker/ProgressTracker.component";
 import { Bottom } from "./components/Bottom/Bottom.component";
@@ -15,10 +14,12 @@ function App() {
     };
 
     return (
-        <AppStyled>
+        <AppStyled data-testid="AppStyled">
             <Main>
                 <Top>
-                    <Title />
+                    <TitleContainer>
+                        <Title>Atualizar Preços</Title>
+                    </TitleContainer>
                     <Spacer x={24} />
                     <ProgressTracker step={step} />
                 </Top>

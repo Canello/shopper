@@ -26,4 +26,6 @@ export const ExampleText = styled.p`
 
 export const Step1FileInput = styled(FileInput)`
     align-self: flex-end;
+    max-width: 180px;
+    width: 100%;
 `;
