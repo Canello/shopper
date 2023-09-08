@@ -9,11 +9,11 @@ interface IProgressTrackerProps {
 export const ProgressTracker: React.FC<IProgressTrackerProps> = ({ step }) => {
     return (
         <ProgressTrackerStyled>
-            <ProgressDot $isActive={true} />
+            <ProgressDot $isActive={step >= 1} />
             <Spacer x={12} />
-            <ProgressDot $isActive={true} />
+            <ProgressDot $isActive={step >= 2} />
             <Spacer x={12} />
-            <ProgressDot $isActive={true} />
+            <ProgressDot $isActive={step >= 3} />
         </ProgressTrackerStyled>
     );
 };

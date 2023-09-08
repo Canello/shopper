@@ -9,7 +9,13 @@ import {
     validateProductUpdates,
 } from "../../services/products.service";
 
-export const Bottom = () => {
+interface IBottomProps {
+    step: 1 | 2 | 3;
+    setStep: Function;
+    showTip: Function;
+}
+
+export const Bottom: React.FC<IBottomProps> = ({ step, setStep, showTip }) => {
     const [file, setFile] = useState<File | null>(null);
     const [productUpdates, setProductUpdates] = useState<Array<ProductUpdate>>(
         []
@@ -65,7 +71,18 @@ export const Bottom = () => {
         e.preventDefault();
         const response = await updateProducts(productUpdates);
         if (response.status === "ok") clearFile(e);
+        showTip();
     };
+
+    const updateStep = () => {
+        if (validationInfo) setStep(3);
+        else if (file) setStep(2);
+        else setStep(1);
+    };
+
+    useEffect(() => {
+        updateStep();
+    }, [validationInfo, file]);
 
     if (validationInfo && file) {
         return (

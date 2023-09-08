@@ -19,5 +19,5 @@ export const ProgressDot = styled.div<IProgressDotProps>`
     width: 12px;
     border-radius: 50%;
     background-color: ${({ $isActive }) =>
-        $isActive ? "var(--primary-color-1)" : "var(--secondary-color-5)"};
+        $isActive ? "var(--neutral-color-2)" : "var(--secondary-color-4)"};
 `;
