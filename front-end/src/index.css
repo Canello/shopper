@@ -29,8 +29,12 @@ h5,
 h6,
 p,
 a,
-span {
+span,
+div,
+td,
+th {
     white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 body,

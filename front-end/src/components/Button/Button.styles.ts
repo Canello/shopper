@@ -20,6 +20,7 @@ export const BaseButton = styled.button<IBaseButton>`
     border-radius: 8px;
     font-size: 14px;
     font-weight: 700;
+    text-align: center;
     transition: opacity 100ms linear;
     pointer-events: ${({ disabled }) => (disabled ? "none" : "all")};
 

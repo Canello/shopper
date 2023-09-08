@@ -28,14 +28,44 @@ export const ValidationError = styled.span`
 export const ButtonsContainer = styled.div`
     display: flex;
     align-self: flex-end;
+    gap: 24px;
+
+    @media screen and (max-width: 900px) {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 540px) {
+        flex-direction: column;
+        align-self: center;
+    }
 `;
 
 export const Step3Button = styled(Button)`
-    width: 228px;
+    width: 180px;
+
+    @media screen and (max-width: 900px) {
+        width: auto;
+        flex: 1;
+    }
+
+    @media screen and (max-width: 540px) {
+        width: 100%;
+        flex: auto;
+    }
 `;
 
 export const Step3FileInput = styled(FileInput)`
-    width: 228px;
+    width: 180px;
+
+    @media screen and (max-width: 900px) {
+        width: auto;
+        flex: 1;
+    }
+
+    @media screen and (max-width: 540px) {
+        width: 100%;
+        flex: auto;
+    }
 `;
 
 export const Hr = styled.hr`

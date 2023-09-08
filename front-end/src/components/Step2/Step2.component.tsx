@@ -49,11 +49,9 @@ export const Step2: React.FC<Step2Props> = ({
                 >
                     Limpar
                 </Step2Button>
-                <Spacer x={24} />
                 <Step2FileInput variant="secondary" onChange={onChangeFile}>
                     Escolher outro
                 </Step2FileInput>
-                <Spacer x={24} />
                 <Step2Button variant="primary" size="medium" onClick={validate}>
                     Validar
                 </Step2Button>

@@ -109,11 +109,7 @@ function validatePriceVariation(
                 product.sales_price,
         ) * 100;
     if (productUpdate.sales_price > MAX_PRICE) {
-        addWarning(
-            `Preço máximo excedido. Preço máximo: R$ ${MAX_PRICE}`,
-            productUpdate.code,
-            validation,
-        );
+        addWarning(`Preço máximo excedido.`, productUpdate.code, validation);
     }
     if (pricePercentageVariation > 10) {
         addWarning(

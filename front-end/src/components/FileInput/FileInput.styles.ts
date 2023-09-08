@@ -18,6 +18,7 @@ export const Label = styled.label<ILabelProps>`
     border-radius: 8px;
     font-size: 14px;
     font-weight: 700;
+    text-align: center;
     transition: opacity 100ms linear;
 
     &:hover {

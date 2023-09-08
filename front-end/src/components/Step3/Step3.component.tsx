@@ -53,11 +53,9 @@ export const Step3: React.FC<IStep3Props> = ({
                 >
                     Limpar
                 </Step3Button>
-                <Spacer x={24} />
                 <Step3FileInput variant={"secondary"} onChange={onChangeFile}>
                     Escolher outro
                 </Step3FileInput>
-                <Spacer x={24} />
                 <Step3Button
                     variant="primary"
                     size="medium"
