@@ -49,7 +49,7 @@ function makeProductInfos(
             code: p.code,
             name: productExists ? product.name : null,
             current_sales_price: productExists ? product.sales_price : null,
-            new_sales_price: p.sales_price,
+            new_sales_price: p.sales_price.toFixed(2),
             warnings: validationWarnings
                 ? validationWarnings[p.code] ?? null
                 : null,

@@ -12,8 +12,8 @@ type ProductInfo = {
     exists: boolean;
     code: number;
     name: string | null;
-    current_sales_price: number | null;
-    new_sales_price: number;
+    current_sales_price: string | null;
+    new_sales_price: string;
     warnings: Array<String> | null;
 };
 

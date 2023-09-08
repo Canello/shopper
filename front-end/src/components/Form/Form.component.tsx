@@ -5,6 +5,7 @@ import {
     updateProducts,
     validateProductUpdates,
 } from "../../services/products.service";
+import { FormStyled } from "./Form.styles";
 
 interface IFormProps {
     setValidationInfo: Function;
@@ -63,7 +64,7 @@ export const Form: React.FC<IFormProps> = ({ setValidationInfo }) => {
     };
 
     return (
-        <form>
+        <FormStyled>
             <input
                 ref={inputRef}
                 type="file"
@@ -72,6 +73,6 @@ export const Form: React.FC<IFormProps> = ({ setValidationInfo }) => {
             />
             <Button onClick={validate}>Validar</Button>
             <Button onClick={update}>Atualizar Preços</Button>
-        </form>
+        </FormStyled>
     );
 };

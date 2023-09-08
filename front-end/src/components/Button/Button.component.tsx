@@ -4,7 +4,7 @@ import { PrimaryButton, SecondaryButton } from "./Button.styles";
 interface IButtonProps {
     variant?: "primary" | "secondary";
     size?: "small" | "medium" | "large";
-    onClick: MouseEventHandler;
+    onClick?: MouseEventHandler;
 }
 
 const buttons = {
@@ -14,7 +14,7 @@ const buttons = {
 
 export const Button: React.FC<React.PropsWithChildren<IButtonProps>> = ({
     variant = "primary",
-    size = "large",
+    size = "medium",
     children,
     ...otherProps
 }) => {

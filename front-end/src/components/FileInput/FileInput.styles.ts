@@ -1,4 +1,3 @@
-import { ButtonHTMLAttributes } from "react";
 import styled from "styled-components";
 
 const HEIGHT = {
@@ -7,10 +6,10 @@ const HEIGHT = {
     large: 40,
 };
 
-interface IBaseButton extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ILabelProps {
     size: "small" | "medium" | "large";
 }
-export const BaseButton = styled.button<IBaseButton>`
+export const Label = styled.label<ILabelProps>`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,15 +22,20 @@ export const BaseButton = styled.button<IBaseButton>`
 
     &:hover {
         opacity: 0.8;
+        cursor: pointer;
     }
 `;
 
-export const PrimaryButton = styled(BaseButton)`
+export const PrimaryLabel = styled(Label)`
     background-color: var(--primary-color-1);
     color: #ffffff;
 `;
 
-export const SecondaryButton = styled(BaseButton)`
+export const SecondaryLabel = styled(Label)`
     border: 1px solid var(--neutral-color-1);
     color: var(--neutral-color-1);
+`;
+
+export const Input = styled.input`
+    display: none;
 `;
