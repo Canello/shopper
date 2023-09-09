@@ -15,8 +15,8 @@
     ```
     PORT=3001
     DB_NAME=shopper_test_23942094
-    DB_USER=<user do mysql>
-    DB_PASSWORD=<senha do mysql>
+    DB_USER=[user mysql]
+    DB_PASSWORD=[senha mysql]
     ```
 4. Ir até a pasta raíz do projeto - que contém as pastas "back-end" e "front-end".
 5. Executar `npm run build`.
