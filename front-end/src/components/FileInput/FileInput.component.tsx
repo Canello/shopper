@@ -21,7 +21,7 @@ export const FileInput: React.FC<React.PropsWithChildren<IFileInputProps>> = ({
 }) => {
     const LabelComponent = labels[variant];
     return (
-        <LabelComponent size={size} {...otherProps}>
+        <LabelComponent data-testid="FileInput" size={size} {...otherProps}>
             {children}
             <Input type="file" accept=".csv" onChange={onChange} />
         </LabelComponent>

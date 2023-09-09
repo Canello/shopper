@@ -36,7 +36,7 @@ export const Bottom: React.FC<IBottomProps> = ({ setStep, showTip }) => {
 
     if (validationInfo && file) {
         return (
-            <BottomStyled data-testid="BottomStyled">
+            <BottomStyled data-testid="BottomStyled3">
                 <Step3
                     update={update}
                     onChangeFile={onChangeFile}
@@ -50,7 +50,7 @@ export const Bottom: React.FC<IBottomProps> = ({ setStep, showTip }) => {
     }
     if (file) {
         return (
-            <BottomStyled data-testid="BottomStyled">
+            <BottomStyled data-testid="BottomStyled2">
                 <Step2
                     validate={validate}
                     onChangeFile={onChangeFile}
@@ -63,7 +63,7 @@ export const Bottom: React.FC<IBottomProps> = ({ setStep, showTip }) => {
         );
     }
     return (
-        <BottomStyled data-testid="BottomStyled">
+        <BottomStyled data-testid="BottomStyled1">
             <Step1 onChangeFile={onChangeFile} />
         </BottomStyled>
     );
