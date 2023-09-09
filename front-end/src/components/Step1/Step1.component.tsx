@@ -14,7 +14,7 @@ interface IStep1Props {
 
 export const Step1: React.FC<IStep1Props> = ({ onChangeFile }) => {
     return (
-        <Form>
+        <Form data-testid="Form">
             <Description>
                 Faça upload de um arquivo CSV no seguinte formato:
             </Description>

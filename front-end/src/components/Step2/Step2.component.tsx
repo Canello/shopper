@@ -28,7 +28,7 @@ export const Step2: React.FC<Step2Props> = ({
     file,
 }) => {
     return (
-        <Form>
+        <Form data-testid="Form">
             <Description>
                 <Filename>{file.name}</Filename>
                 <br />

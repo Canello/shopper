@@ -31,7 +31,7 @@ export const Step3: React.FC<IStep3Props> = ({
     serverError,
 }) => {
     return (
-        <Form>
+        <Form data-testid="Form">
             <Description>
                 <Filename>{file.name}</Filename>
                 <br />

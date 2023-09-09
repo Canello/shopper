@@ -8,12 +8,11 @@ import { useFileParser } from "../../hooks/useFileParser.hook";
 import { useBottomActions } from "../../hooks/useBottomActions.hook";
 
 interface IBottomProps {
-    step: 1 | 2 | 3;
     setStep: Function;
     showTip: Function;
 }
 
-export const Bottom: React.FC<IBottomProps> = ({ step, setStep, showTip }) => {
+export const Bottom: React.FC<IBottomProps> = ({ setStep, showTip }) => {
     const [file, setFile] = useState<File | null>(null);
     const [productUpdates, setProductUpdates] = useState<Array<ProductUpdate>>(
         []
@@ -37,7 +36,7 @@ export const Bottom: React.FC<IBottomProps> = ({ step, setStep, showTip }) => {
 
     if (validationInfo && file) {
         return (
-            <BottomStyled>
+            <BottomStyled data-testid="BottomStyled">
                 <Step3
                     update={update}
                     onChangeFile={onChangeFile}
@@ -51,7 +50,7 @@ export const Bottom: React.FC<IBottomProps> = ({ step, setStep, showTip }) => {
     }
     if (file) {
         return (
-            <BottomStyled>
+            <BottomStyled data-testid="BottomStyled">
                 <Step2
                     validate={validate}
                     onChangeFile={onChangeFile}
@@ -64,7 +63,7 @@ export const Bottom: React.FC<IBottomProps> = ({ step, setStep, showTip }) => {
         );
     }
     return (
-        <BottomStyled>
+        <BottomStyled data-testid="BottomStyled">
             <Step1 onChangeFile={onChangeFile} />
         </BottomStyled>
     );

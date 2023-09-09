@@ -24,7 +24,7 @@ function App() {
                     <ProgressTracker step={step} />
                 </Top>
                 <Spacer y={24} />
-                <Bottom step={step} setStep={setStep} showTip={showTip} />
+                <Bottom setStep={setStep} showTip={showTip} />
                 <SuccessTip isShowing={showSuccessTip} />
             </Main>
         </AppStyled>
