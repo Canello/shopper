@@ -7,7 +7,7 @@
         "start": "concurrently \"npm start --prefix front-end\" \"npm start --prefix back-end\"",
         "build": "npm run install-deps && npm run build-back-end",
         "build-back-end": "npm run build --prefix back-end",
-        "install-deps": "npm install --prefix front-end && npm install --prefix back-end"
+        "install-deps": "npm install && npm install --prefix front-end && npm install --prefix back-end"
     },
     "repository": {
         "type": "git",
@@ -18,5 +18,8 @@
     "bugs": {
         "url": "https://github.com/Canello/shopper/issues"
     },
-    "homepage": "https://github.com/Canello/shopper#readme"
+    "homepage": "https://github.com/Canello/shopper#readme",
+    "dependencies": {
+        "concurrently": "^8.2.1"
+    }
 }
