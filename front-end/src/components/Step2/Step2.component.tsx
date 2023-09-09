@@ -2,8 +2,8 @@ import React, { ChangeEventHandler, MouseEventHandler } from "react";
 import { Spacer } from "../Spacer/Spacer.component";
 import {
     ButtonsContainer,
-    CsvErrorText,
     Description,
+    ErrorText,
     Filename,
     Form,
     Step2Button,
@@ -15,6 +15,7 @@ interface Step2Props {
     onChangeFile: ChangeEventHandler;
     validate: MouseEventHandler;
     csvError: boolean;
+    serverError: boolean;
     file: File;
 }
 
@@ -23,6 +24,7 @@ export const Step2: React.FC<Step2Props> = ({
     onChangeFile,
     clearFile,
     csvError,
+    serverError,
     file,
 }) => {
     return (
@@ -34,9 +36,15 @@ export const Step2: React.FC<Step2Props> = ({
                 {csvError ? (
                     <>
                         <br />
-                        <CsvErrorText>
+                        <ErrorText>
                             Erro com o arquivo enviado. Tente outro.
-                        </CsvErrorText>
+                        </ErrorText>
+                    </>
+                ) : null}
+                {serverError ? (
+                    <>
+                        <br />
+                        <ErrorText>Erro no servidor.</ErrorText>
                     </>
                 ) : null}
             </Description>

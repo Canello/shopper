@@ -4,13 +4,13 @@ import { Table } from "../Table/Table.component";
 import {
     ButtonsContainer,
     Description,
+    ErrorText,
     Filename,
     Form,
     Hr,
     Step3Button,
     Step3FileInput,
-    ValidationError,
-    ValidationSuccess,
+    SuccessText,
 } from "./Step3.styles";
 
 interface IStep3Props {
@@ -19,6 +19,7 @@ interface IStep3Props {
     clearFile: MouseEventHandler;
     validationInfo: ValidationInfo;
     file: File;
+    serverError: boolean;
 }
 
 export const Step3: React.FC<IStep3Props> = ({
@@ -27,6 +28,7 @@ export const Step3: React.FC<IStep3Props> = ({
     clearFile,
     validationInfo,
     file,
+    serverError,
 }) => {
     return (
         <Form>
@@ -34,15 +36,16 @@ export const Step3: React.FC<IStep3Props> = ({
                 <Filename>{file.name}</Filename>
                 <br />
                 {validationInfo.is_valid ? (
-                    <ValidationSuccess>
+                    <SuccessText>
                         Validação bem sucedida! Preços prontos para serem
                         atualizados.
-                    </ValidationSuccess>
+                    </SuccessText>
                 ) : (
-                    <ValidationError>
+                    <ErrorText>
                         Validação mal sucedida. Escolha um arquivo válido.
-                    </ValidationError>
+                    </ErrorText>
                 )}
+                {serverError ? <ErrorText>Erro no servidor.</ErrorText> : null}
             </Description>
             <Spacer y={32} />
             <ButtonsContainer>

@@ -17,11 +17,11 @@ export const Filename = styled.span`
     color: var(--neutral-color-1);
 `;
 
-export const ValidationSuccess = styled.span`
+export const SuccessText = styled.span`
     color: var(--success-color-2);
 `;
 
-export const ValidationError = styled.span`
+export const ErrorText = styled.span`
     color: var(--error-color-2);
 `;
 

@@ -17,7 +17,7 @@ export const Filename = styled.span`
     color: var(--neutral-color-1);
 `;
 
-export const CsvErrorText = styled.span`
+export const ErrorText = styled.span`
     color: var(--error-color-2);
 `;
 
