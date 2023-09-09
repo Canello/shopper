@@ -1,11 +1,13 @@
+CREATE SCHEMA shopper_test_23942094;
 
+USE shopper_test_23942094;
 
 CREATE TABLE products 
 ( 
-	code bigint PRIMARY KEY, # CODIGO DO PRODUTO 
-	name varchar(100) NOT NULL, # NOME DO PRODUTO
-	cost_price decimal(9,2) NOT NULL, # CUSTO DO PRODUTO
-	sales_price decimal(9,2) NOT NULL # PRE�O DE VENDA DO PRODUTO
+	code bigint PRIMARY KEY,
+	name varchar(100) NOT NULL,
+	cost_price decimal(9,2) NOT NULL,
+	sales_price decimal(9,2) NOT NULL
 );
 
 INSERT INTO products VALUES (16,'AZEITE  PORTUGUÊS  EXTRA VIRGEM GALLO 500ML',18.44,20.49);
@@ -23,10 +25,10 @@ INSERT INTO products VALUES (1020,'SUPER PACK RED BULL VARIADOS - 6 UNIDADES',51
 
 CREATE TABLE packs 
 (
-  id bigint AUTO_INCREMENT PRIMARY KEY, # id primario da tabela
-  pack_id bigint NOT NULL,  # id do produto pack 
-  product_id bigint NOT NULL, # id do produto componente
-  qty bigint NOT NULL, # quantidade do produto componente no pack
+  id bigint AUTO_INCREMENT PRIMARY KEY,
+  pack_id bigint NOT NULL,
+  product_id bigint NOT NULL,
+  qty bigint NOT NULL,
   CONSTRAINT FOREIGN KEY (pack_id) REFERENCES products(code),
   CONSTRAINT FOREIGN KEY (product_id) REFERENCES products(code)
 );
