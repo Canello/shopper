@@ -1,6 +1,5 @@
 DROP SCHEMA shopper_test_23942094;
 CREATE SCHEMA shopper_test_23942094;
-
 USE shopper_test_23942094;
 
 CREATE TABLE products 
@@ -39,6 +38,3 @@ INSERT INTO packs (pack_id,product_id, qty) VALUES (1010,24,1);
 INSERT INTO packs (pack_id,product_id, qty) VALUES (1010,26,1);
 INSERT INTO packs (pack_id,product_id, qty) VALUES (1020,19,3);
 INSERT INTO packs (pack_id,product_id, qty) VALUES (1020,21,3);
-
-
-

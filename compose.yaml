@@ -1,0 +1,19 @@
+services:
+    front-end:
+        image: canello/shopper-fe
+        ports:
+            - 127.0.0.1:3000:3000
+
+    back-end:
+        image: canello/shopper-be
+        ports:
+            - 127.0.0.1:3001:3001
+        env_file:
+            - back-end/.env
+
+    database:
+        image: canello/shopper-db
+        ports:
+            - 127.0.0.1:3002:3306
+        env_file:
+            - database/.env
