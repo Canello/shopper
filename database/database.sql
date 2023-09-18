@@ -1,6 +1,4 @@
-DROP SCHEMA shopper_test_23942094;
-CREATE SCHEMA shopper_test_23942094;
-USE shopper_test_23942094;
+USE shopper;
 
 CREATE TABLE products 
 ( 

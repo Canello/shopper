@@ -1,15 +1,10 @@
 import { config } from "dotenv";
 config();
 import { app } from "./app";
-import { sequelize } from "./utils/database";
+import { tryToConnectToDB } from "./utils/database";
 
 const start = async () => {
-    try {
-        await sequelize.authenticate();
-        console.log("MySQL is connected.");
-    } catch (err) {
-        console.log("MySQL connection error.");
-    }
+    await tryToConnectToDB();
 
     const port = process.env.PORT || 3001;
     app.listen(port, () => {
