@@ -2,7 +2,9 @@
 
 ## Para executar o app na sua máquina:
 
-1. Na pasta "back-end" criar um arquivo .env com as seguintes variáveis:
+1. Garantir que você tem o Docker instalado e funcionando. Garantir que as portas 3000, 3001 e 3002 da sua máquina estão disponíveis.
+
+2. Na pasta "back-end" criar um arquivo .env com as seguintes variáveis:
 
     ```
     PORT=3001
@@ -12,16 +14,14 @@
     DB_PASSWORD=shopper123
     ```
 
-2. Na pasta "database" criar um arquivo .env com as seguintes variáveis:
+3. Na pasta "database" criar um arquivo .env com as seguintes variáveis:
 
     ```
     MYSQL_DATABASE=shopper
     MYSQL_ROOT_PASSWORD=shopper123
     ```
 
-3. Garantir que as portas 3000, 3001 e 3002 da sua máquina estão disponíveis.
-
-4. Na pasta raíz do projeto (pasta mãe das pastas front-end, back-end e database), executar:
+4. Na pasta raíz do projeto (que contém o arquivo compose.yaml), executar:
     ```
     docker compose up
     ```
