@@ -13,15 +13,19 @@ export const sequelize = new Sequelize(
 );
 
 export const tryToConnectToDB = async () => {
-    for (let i = 0; i < 5; i++) {
+    const ATTEMPTS = 9;
+    for (let i = 0; i < ATTEMPTS; i++) {
         try {
             await sequelize.authenticate();
             console.log("MySQL is connected.");
-            break;
+            return;
         } catch (err) {
             console.log("MySQL connection error. Attempt number", i + 1);
             console.log(err);
             await waitFor(5000);
         }
     }
+    console.log(
+        `Unable to connect to MySQL. All ${ATTEMPTS} attempts have failed.`,
+    );
 };
