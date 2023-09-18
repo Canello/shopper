@@ -25,4 +25,4 @@
     ```
     docker compose up
     ```
-5. Aguardar alguns segundos para os containeres inicializarem. O app vai estar disponível em http://localhost:3000/.
+5. Aguardar alguns segundos para tudo inicializar. Quando aparecer o log "Listening on port 3001." provavelmente tudo vai estar pronto. O web app vai ficar disponível em http://localhost:3000/ (atenção: porta 3000).
