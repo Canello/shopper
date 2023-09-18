@@ -2,28 +2,27 @@
 
 ## Para executar o app na sua máquina:
 
-1. Instalar o MySQL.
-2. No MySQL, executar o script database.sql (da pasta raíz do projeto) para gerar o banco de dados e as tabelas. Pelo terminal:
-    ```
-    ~> cd [pasta raíz do projeto]
-    ~> mysql -u [user mysql] -p
-    ~> [senha mysql]
-    ~> source database.sql
-    ~> quit
-    ```
-3. Na pasta "back-end" criar um arquivo .env com as seguintes variáveis:
+1. Na pasta "back-end" criar um arquivo .env com as seguintes variáveis:
+
     ```
     PORT=3001
-    DB_NAME=shopper_test_23942094
-    DB_USER=[user mysql]
-    DB_PASSWORD=[senha mysql]
+    DB_HOST=database
+    DB_NAME=shopper
+    DB_USER=root
+    DB_PASSWORD=shopper123
     ```
-4. Ir até a pasta raíz do projeto - que contém as pastas "back-end" e "front-end".
-5. Executar `npm run build`.
-6. Executar `npm start`.
 
-### Versões utilizadas:
+2. Na pasta "database" criar um arquivo .env com as seguintes variáveis:
 
-_Node.js 18.12.1_
+    ```
+    MYSQL_DATABASE=shopper
+    MYSQL_ROOT_PASSWORD=shopper123
+    ```
 
-_MySQL 8.0.34_
+3. Garantir que as portas 3000, 3001 e 3002 da sua máquina estão disponíveis.
+
+4. Na pasta raíz do projeto (pasta mãe das pastas front-end, back-end e database), executar:
+    ```
+    docker compose up
+    ```
+5. Aguardar alguns segundos para os containeres inicializarem. O app vai estar disponível em http://localhost:3000/.
