@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { FileInput } from "../FileInput/FileInput.component";
-import { Button } from "../Button/Button.component";
 
 export const Form = styled.form`
     display: flex;

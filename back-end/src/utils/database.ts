@@ -20,8 +20,6 @@ export const tryToConnectToDB = async () => {
             console.log("MySQL is connected.");
             return;
         } catch (err) {
-            console.log("MySQL connection error. Attempt number", i + 1);
-            console.log(err);
             await waitFor(5000);
         }
     }
